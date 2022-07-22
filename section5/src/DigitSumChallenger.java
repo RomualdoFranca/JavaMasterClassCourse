@@ -18,19 +18,29 @@ public class DigitSumChallenger {
     Tip:
     Create a project with the name DigitSumChallenge.*/
     public static void main(String[] args) {
-        System.out.println(sumDigit(985));
+        System.out.println("A soma dos digitos = " + sumDigit(-125));
     }
     public static int sumDigit(int number) {
 
         if (number <= 9) {
             return -1;
         }
-        int init = number;
-        while (number > 9) {
-            System.out.println("number " + number);
-            number /= 10;
+        // armazena o ultimo algorismo
+        int lastDigit = number % 10;
+        // armazena a soma dos algorismos
+        int sumOfDigits = 0;
 
+        while (number > 9) {
+            // output para visualizar o que ocorre em cada loop
+//            System.out.println("numero antes do incremento " + number);
+            // a cada divisao, o ultimo algorismo é eliminado
+            number /= 10;
+            // output para visualizar o que ocorre em cada loop
+//            System.out.println("numero depois do incremento " + number);
+            // soma dos digitos, exceto o ultimo
+            sumOfDigits += number % 10;
+//            System.out.println("a soma dos ultimos digitos " + (sumOfDigits + lastDigit));
         }
-        return 1;
+        return sumOfDigits + lastDigit;
     }
 }
