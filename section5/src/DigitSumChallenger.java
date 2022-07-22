@@ -18,13 +18,13 @@ public class DigitSumChallenger {
     Tip:
     Create a project with the name DigitSumChallenge.*/
     public static void main(String[] args) {
-        System.out.println(sumDigit(-1));
+        System.out.println(sumDigit(198));
     }
     public static int sumDigit(int number) {
 
         if (number <= 9) {
             return -1;
         }
-        return 1;
+        return number % 10;
     }
 }
