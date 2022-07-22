@@ -18,29 +18,46 @@ public class DigitSumChallenger {
     Tip:
     Create a project with the name DigitSumChallenge.*/
     public static void main(String[] args) {
-        System.out.println("A soma dos digitos = " + sumDigit(-125));
+        //  test out if our logic in the method is working
+        System.out.println("The sum of the digits  is " + sumDigit(125));
     }
     public static int sumDigit(int number) {
 
-        if (number <= 9) {
+        // solution
+        if (number < 10) {
             return -1;
         }
-        // armazena o ultimo algorismo
-        int lastDigit = number % 10;
-        // armazena a soma dos algorismos
-        int sumOfDigits = 0;
-
-        while (number > 9) {
-            // output para visualizar o que ocorre em cada loop
-//            System.out.println("numero antes do incremento " + number);
-            // a cada divisao, o ultimo algorismo é eliminado
+        int sum = 0;
+        // 125 -> 125 / 10 = 12 -> * 10 = 120 -> 125 - 120 = 5
+        // keep looping while the number is greater than 0
+        while (number > 0) {
+            // extract the least-significant digit
+            int digit = number % 10;
+            sum += digit;
+            // drop the least-significant digit
             number /= 10;
-            // output para visualizar o que ocorre em cada loop
-//            System.out.println("numero depois do incremento " + number);
-            // soma dos digitos, exceto o ultimo
-            sumOfDigits += number % 10;
-//            System.out.println("a soma dos ultimos digitos " + (sumOfDigits + lastDigit));
         }
-        return sumOfDigits + lastDigit;
+
+//        if (number <= 9) {
+//            return -1;
+//        }
+//        // armazena o ultimo algorismo
+//        int lastDigit = number % 10;
+//        // armazena a soma dos algorismos
+//        int sumOfDigits = 0;
+//
+//        while (number > 9) {
+//            // output para visualizar o que ocorre em cada loop
+////            System.out.println("numero antes do incremento " + number);
+//            // a cada divisao, o ultimo algorismo é eliminado
+//            number /= 10;
+//            // output para visualizar o que ocorre em cada loop
+////            System.out.println("numero depois do incremento " + number);
+//            // soma dos digitos, exceto o ultimo
+//            sumOfDigits += number % 10;
+////            System.out.println("a soma dos ultimos digitos " + (sumOfDigits + lastDigit));
+//        }
+//        return sumOfDigits + lastDigit;
+        return sum;
     }
 }
