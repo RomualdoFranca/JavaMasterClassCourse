@@ -38,6 +38,8 @@ Tip: Be careful with reversing a number, you will need a parameter for comparing
         }
         int reverse = 0;
         int numberNoIncrement = number;
+
+        System.out.println(numberNoIncrement);
         while (number > 0) {
             // Para se inverter um numero: multiplicar cada algarismo por 10 e somar com o proximo algarismo encontrado
             // Ex: 1° algarismo encontrado vezes 10 + 2° algarismo vezes 10, e assim sucessivamente
@@ -49,8 +51,8 @@ Tip: Be careful with reversing a number, you will need a parameter for comparing
             number /= 10;
             // formula que adiciona os algarismo ja multiplicados por 10
             reverse += digit;
+            System.out.println("reverse " + reverse);
         }
-        System.out.println("reverse " + reverse);
         System.out.println("number " + numberNoIncrement);
         if (reverse == numberNoIncrement) {
             System.out.println("The number is a palindrome ");
