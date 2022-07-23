@@ -29,23 +29,34 @@ Tip: Be careful with reversing a number, you will need a parameter for comparing
 (parameter).
 */
     public static void main(String[] args) {
-        isPalindrome(123);
+        System.out.println(isPalindrome(-77));
     }
     public static boolean isPalindrome(int number) {
 
-        if (number < 100) {
+        if (number > -10 && number < 10) {
             return false;
         }
         int reverse = 0;
+        int numberNoIncrement = number;
         while (number > 0) {
+            // Para se inverter um numero: multiplicar cada algarismo por 10 e somar com o proximo algarismo encontrado
+            // Ex: 1° algarismo encontrado vezes 10 + 2° algarismo vezes 10, e assim sucessivamente
+            // essa variavel armazena o numero inverso
+            reverse *= 10;
+            // formula para pegar o ultimo algarismo do numero
             int digit = number % 10;
+            // formula para retirar o ultimo algarismo do numero
             number /= 10;
-            System.out.println("number " + number);
-            System.out.println("digit " + digit);
-            reverse = number + (digit * 10);
-            System.out.println(reverse);
-
+            // formula que adiciona os algarismo ja multiplicados por 10
+            reverse += digit;
         }
+        System.out.println("reverse " + reverse);
+        System.out.println("number " + numberNoIncrement);
+        if (reverse == numberNoIncrement) {
+            System.out.println("The number is a palindrome ");
+            return true;
+        }
+        System.out.println("The number isn't a palindrome ");
         return false;
     }
 }
