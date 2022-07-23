@@ -19,7 +19,7 @@ EXAMPLE INPUT/OUTPUT
 * isValid(1051); → should return false since 1051 is not within the range of 10-1000
 */
     public static void main(String[] args) {
-        System.out.println(hasSameLastDigit(10,99,1000));
+        System.out.println(hasSameLastDigit(23,456,789));
     }
     public static boolean hasSameLastDigit(int numA, int numB, int numC) {
         boolean isNumAValid = numA > 9 && numA <= 1000;
@@ -30,7 +30,36 @@ EXAMPLE INPUT/OUTPUT
             System.out.println("number out of range ");
             return false;
         }
+        // variavel de controle
+        int count = 0;
+        while (count < 1) {
+            int digitUnityNumA = numA % 10;
+            int digitUnityNumB = numB % 10;
+            int digitUnityNumC = numC % 10;
+            System.out.println("");
+            numA /= 10;
+            int digitTensNumA = numA % 10;
+            numB /= 10;
+            int digitTensNumB = numB % 10;
+            numC /= 10;
+            int digitTensNumC = numC % 10;
+            count++;
+
+        }
         System.out.println("return");
         return true;
+
+
     }
 }
+/* Outputs para verificar as logicas aplicada nos argumentos
+
+*       System.out.println("digito da unidade de numA " + digitUnityNumA);
+        System.out.println("digito da unidade de numB " + digitUnityNumB);
+        System.out.println("digito da unidade de numC " + digitUnityNumC);
+        System.out.println("digito das dezenas de numB " + digitTensNumB);
+        System.out.println("digito das dezenas de numA " + digitTensNumA);
+        System.out.println("digito das dezenas de numC " + digitTensNumC);
+        *
+        *
+* */
