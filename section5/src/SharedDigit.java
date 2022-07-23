@@ -11,7 +11,7 @@ EXAMPLE INPUT/OUTPUT:
 * hasSharedDigit(15, 55); → should return true since the digit 5 appears in both numbers
 */
     public static void main(String[] args) {
-        System.out.println(hasSharedDigit(12, 53));
+        System.out.println(hasSharedDigit(23, 23));
     }
     public static boolean hasSharedDigit(int num1, int num2) {
 
@@ -19,7 +19,18 @@ EXAMPLE INPUT/OUTPUT:
         if (!isValidNumbers) {
             return false;
         }
-
+        int compareNumbers = 0;
+        while (num1 > 0) {
+            int digitsNum1 = num1 % 10;
+            int digitsNum2 = num2 % 10;
+            num1 /= 10;
+            System.out.println("num1 " + digitsNum1);
+            num2 /= 10;
+            System.out.println("num2 " + digitsNum2);
+            if (digitsNum1 == digitsNum2) {
+                System.out.printf("num1 %d num2 %d", num1, num2);
+            }
+        }
         return true;
     }
 }
