@@ -10,7 +10,7 @@ EXAMPLE INPUT/OUTPUT:
 * getEvenDigitSum(-22); → should return -1 since the number is negative
 */
     public static void main(String[] args) {
-        System.out.println(getEvenDigitSum(21416));
+        System.out.println(getEvenDigitSum(12));
     }
     public static int getEvenDigitSum(int number) {
         if (number < 0 ) {
@@ -18,13 +18,16 @@ EXAMPLE INPUT/OUTPUT:
         }
         int sum = 0;
         while (number / 10 > 0) {
-            int lastNumber = number % 10;
-            int digits = number % 10;
+            int lastDigit = number % 10;
             number /= 10;
-            System.out.println(number);
-//            System.out.println("all digits " + digits);
+            boolean isLastNumberEven = (lastDigit % 10) % 2 == 0;
+            System.out.println("valida o ultimo digito " + isLastNumberEven);
+            boolean isNumberEnven = (number % 2) == 0;
+            System.out.println("valida o primeiro digito " + isNumberEnven);
+            int digits = number % 10;
+//            System.out.println(number);
             if (digits % 2 == 0) {
-                System.out.println("even digits inside if " + digits);
+//                System.out.println("even digits inside if " + digits);
                 sum += digits;
 //                int totalSum = sum + number + lastNumber;
 //                System.out.println("sum of even numbers " + sum);
