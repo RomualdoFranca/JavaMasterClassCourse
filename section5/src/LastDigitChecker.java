@@ -19,7 +19,13 @@ EXAMPLE INPUT/OUTPUT
 * isValid(1051); → should return false since 1051 is not within the range of 10-1000
 */
     public static void main(String[] args) {
-        System.out.println(hasSameLastDigit(23,456,789));
+        // testanto as validacoes
+        System.out.println(hasSameLastDigit(41,22,71));
+        System.out.println(hasSameLastDigit(23,32,42));
+        System.out.println(hasSameLastDigit(9,99,999));
+        System.out.println(isValid(10));
+        System.out.println(isValid(468));
+        System.out.println(isValid(1051));
     }
     public static boolean hasSameLastDigit(int numA, int numB, int numC) {
 
@@ -27,62 +33,30 @@ EXAMPLE INPUT/OUTPUT
             System.out.println("number out of range ");
             return false;
         }
-        // variavel de controle
+        // variavel de controle foi usada para controlar a quantidade de loops que vao ocorrer, je que tendo 3
+        // variaveis no metodo, eu nao sei qual delas usar para a condicao e o incremento
         int count = 0;
+        // apenas um loop é suficiente para obter o digito das unidades das variaveis do metodo
         while (count < 1) {
-            System.out.println(digitUnity(numA));
-            System.out.println(digitUnity(numB));
-            System.out.println(digitUnity(numC));
-            System.out.println(digitUnity(numA / 10));
-            System.out.println(digitUnity(numB / 10));
-            System.out.println(digitUnity(numC / 10));
-            count++;
 
+            digitUnity(numA);
+            digitUnity(numB);
+            digitUnity(numC);
+            count++;
         }
-        System.out.println("return");
-        return true;
+        return isValid(digitUnity(numA), digitUnity(numB), digitUnity(numC) );
     }
+    // validar os numeros dentro do intervalo
     public static boolean isValid(int number) {
         return number > 9 && number <= 1000;
     }
+    // obter o digito das unidades
     public static int digitUnity(int unity) {
         return unity % 10;
     }
+    // comparar os digitos das unidades
+    public static boolean isValid(int num1, int num2, int num3){
+//  return digitUnity(numA) == digitUnity(numB) || digitUnity(numA) == digitUnity(numC) || digitUnity(numB) == digitUnity(numC);
+        return num1 == num2 || num1 == num3 || num2 == num3;
+    }
 }
-/* Outputs para verificar as logicas aplicada nos argumentos
-
-*       System.out.println("digito da unidade de numA " + digitUnityNumA);
-        System.out.println("digito da unidade de numB " + digitUnityNumB);
-        System.out.println("digito da unidade de numC " + digitUnityNumC);
-        System.out.println("digito das dezenas de numB " + digitTensNumB);
-        System.out.println("digito das dezenas de numA " + digitTensNumA);
-        System.out.println("digito das dezenas de numC " + digitTensNumC);
-
-        //        if (!isNumAValid || !isNumBValid || !isNumCValid) {
-//            System.out.println("number out of range ");
-//            return false;
-//        }
-
-            //        boolean isNumAValid = numA > 9 && numA <= 1000;
-//        boolean isNumBValid = numB > 9 && numB <= 1000;
-//        boolean isNumCValid = numC > 9 && numC <= 1000;
-
-//            int digitUnityNumB = numB % 10;
-//            int digitUnityNumC = numC % 10;
-//            System.out.println("");
-//            System.out.println("digito da unidade de numA " + digitUnity(numA));
-//            System.out.println("digito da dezena no metodo de numA " + digitUnity(numA / 10));
-//            numA /= 10;
-//            int digitTensNumA = numA % 10;
-//            numB /= 10;
-//            int digitTensNumB = numB % 10;
-//            numC /= 10;
-//            int digitTensNumC = numC % 10;
-//            System.out.println("digito da unidade de numB " + digitUnityNumB);
-//            System.out.println("digito da unidade de numC " + digitUnityNumC);
-//            System.out.println("digito das dezenas de numA " + digitTensNumA);
-//            System.out.println("digito das dezenas de numB " + digitTensNumB);
-//            System.out.println("digito das dezenas de numC " + digitTensNumC);
-        *
-        *
-* */
