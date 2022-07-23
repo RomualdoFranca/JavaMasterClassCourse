@@ -10,30 +10,26 @@ EXAMPLE INPUT/OUTPUT:
 * getEvenDigitSum(-22); → should return -1 since the number is negative
 */
     public static void main(String[] args) {
-        System.out.println(getEvenDigitSum(12));
+        System.out.println("soma dos numeros pares " + getEvenDigitSum(123456));
     }
     public static int getEvenDigitSum(int number) {
+
         if (number < 0 ) {
             return -1;
         }
         int sum = 0;
-        while (number / 10 > 0) {
-            int lastDigit = number % 10;
+        int digits = 0;
+        while (number > 0) {
+            // se essa variavel estiver apos o incremento, nao vai armazenar nem o 1° nem o ultimo digito com essa condicao
+            // do while
+            digits = number % 10;
+            // Obeservar a posicao do incremento
             number /= 10;
-            boolean isLastNumberEven = (lastDigit % 10) % 2 == 0;
-            System.out.println("valida o ultimo digito " + isLastNumberEven);
-            boolean isNumberEnven = (number % 2) == 0;
-            System.out.println("valida o primeiro digito " + isNumberEnven);
-            int digits = number % 10;
-//            System.out.println(number);
             if (digits % 2 == 0) {
-//                System.out.println("even digits inside if " + digits);
                 sum += digits;
-//                int totalSum = sum + number + lastNumber;
-//                System.out.println("sum of even numbers " + sum);
             }
-
         }
-        return -100;
+        return sum;
     }
 }
+

@@ -36,6 +36,8 @@ public class DigitSumChallenger {
             sum += digit;
             // drop the least-significant digit
             number /= 10;
+            System.out.println(digit);
+//            System.out.println(number);
         }
 
 //        if (number <= 9) {
