@@ -22,34 +22,31 @@ EXAMPLE INPUT/OUTPUT
         System.out.println(hasSameLastDigit(23,456,789));
     }
     public static boolean hasSameLastDigit(int numA, int numB, int numC) {
-        boolean isNumAValid = numA > 9 && numA <= 1000;
-        boolean isNumBValid = numB > 9 && numB <= 1000;
-        boolean isNumCValid = numC > 9 && numC <= 1000;
 
-        if (!isNumAValid || !isNumBValid || !isNumCValid) {
+        if (!isValid(numA) || !isValid(numB) || !isValid(numC)) {
             System.out.println("number out of range ");
             return false;
         }
         // variavel de controle
         int count = 0;
         while (count < 1) {
-            int digitUnityNumA = numA % 10;
-            int digitUnityNumB = numB % 10;
-            int digitUnityNumC = numC % 10;
-            System.out.println("");
-            numA /= 10;
-            int digitTensNumA = numA % 10;
-            numB /= 10;
-            int digitTensNumB = numB % 10;
-            numC /= 10;
-            int digitTensNumC = numC % 10;
+            System.out.println(digitUnity(numA));
+            System.out.println(digitUnity(numB));
+            System.out.println(digitUnity(numC));
+            System.out.println(digitUnity(numA / 10));
+            System.out.println(digitUnity(numB / 10));
+            System.out.println(digitUnity(numC / 10));
             count++;
 
         }
         System.out.println("return");
         return true;
-
-
+    }
+    public static boolean isValid(int number) {
+        return number > 9 && number <= 1000;
+    }
+    public static int digitUnity(int unity) {
+        return unity % 10;
     }
 }
 /* Outputs para verificar as logicas aplicada nos argumentos
@@ -60,6 +57,32 @@ EXAMPLE INPUT/OUTPUT
         System.out.println("digito das dezenas de numB " + digitTensNumB);
         System.out.println("digito das dezenas de numA " + digitTensNumA);
         System.out.println("digito das dezenas de numC " + digitTensNumC);
+
+        //        if (!isNumAValid || !isNumBValid || !isNumCValid) {
+//            System.out.println("number out of range ");
+//            return false;
+//        }
+
+            //        boolean isNumAValid = numA > 9 && numA <= 1000;
+//        boolean isNumBValid = numB > 9 && numB <= 1000;
+//        boolean isNumCValid = numC > 9 && numC <= 1000;
+
+//            int digitUnityNumB = numB % 10;
+//            int digitUnityNumC = numC % 10;
+//            System.out.println("");
+//            System.out.println("digito da unidade de numA " + digitUnity(numA));
+//            System.out.println("digito da dezena no metodo de numA " + digitUnity(numA / 10));
+//            numA /= 10;
+//            int digitTensNumA = numA % 10;
+//            numB /= 10;
+//            int digitTensNumB = numB % 10;
+//            numC /= 10;
+//            int digitTensNumC = numC % 10;
+//            System.out.println("digito da unidade de numB " + digitUnityNumB);
+//            System.out.println("digito da unidade de numC " + digitUnityNumC);
+//            System.out.println("digito das dezenas de numA " + digitTensNumA);
+//            System.out.println("digito das dezenas de numB " + digitTensNumB);
+//            System.out.println("digito das dezenas de numC " + digitTensNumC);
         *
         *
 * */
