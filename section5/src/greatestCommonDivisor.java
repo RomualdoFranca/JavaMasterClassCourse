@@ -21,11 +21,11 @@ public class greatestCommonDivisor {
     HINT: Find the minimum of the two numbers.
     */
     public static void main(String[] args) {
-        System.out.println(Mdc(18));
+        System.out.println(Mdc(12));
     }
 
     public static int getGreatestCommonDivisor(int first, int second) {
-        if (first < 0 || second < 0) {
+        if (first < 10 || second < 10) {
             return -1;
         }
         int count = 0;
@@ -36,32 +36,24 @@ public class greatestCommonDivisor {
     }
 
     public static int Mdc(int num) {
-        if (num <= 0) {
+        if (num < 10) {
             return -1;
         }
-        int quosciente = 0;
-        int remainderNum = 0;
-        // enquanto o resto num % i == 0; nao deve haver incremento no i
+        int countLoop = 0;
         for (int i = 2; num > 0;) {
-            System.out.println("num 1 = " + num);
-//            num /= i;
-            // Se o resto da divisao do numero pelo incremento for igual a zero, o if é acessado
-            if (num % i == 0) {
-                // 1° divisao de num por 2.
+            countLoop ++;
+            System.out.printf("%d° loop fora do if; num = %d; i = %d\n", countLoop, num, i);
+            num /= i;
+            System.out.printf("%d° loop; num = %d; i = %d\n", countLoop, num, i);
+            if (num % i >= 1) {
+                System.out.printf("%d° loop  dentro do if antes do incremento e divisao; num = %d; i = %d\n", countLoop, num, i);
+                i++;
                 num /= i;
-                System.out.println("num 2 = " + num);
-                System.out.println("incremento dentro do if " + i);
-                System.out.println("");
-            }else {
-            i++;
-            }
-            System.out.println("num 3 = " + num);
-            System.out.println("incremento fora do if " + i);
-//            num /= i;
-            System.out.println("num 4 = " + num);
-            System.out.println("");
+                System.out.printf("%d° loop dentro do if apos incremento e divisao; num = %d; i = %d\n", countLoop, num, i);
 
+            }
         }
-        return 1;
+
+        return num;
     }
 }
