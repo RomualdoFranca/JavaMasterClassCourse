@@ -16,10 +16,7 @@ public class ListaDeDivisores {
                 System.out.printf("%d,", i);
             }
         }
-        for (num = 0; ((n1 | n2) & 1) == 0; n++) {
-            num >>= 1;
-            n2 >>= 1;
-        }
+
         return num;
     }
 }
