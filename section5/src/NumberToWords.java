@@ -58,4 +58,20 @@ Two
 Three
 They don't have to be separated by a space.
 */
+    public static void main(String[] args) {
+//        numberToWords(-3);
+//        numberToWords(1);
+        numberToWords(39);
+    }
+    public static void numberToWords(int number) {
+        if (number < 0 ) {
+            System.out.println("Invalid Value");
+        }
+        //Extract the last digit
+        int lastDigit = number % 10;
+        System.out.println("the last digit " + lastDigit);
+        //Remove the last digit
+        number /= 10;
+        System.out.println("remove the last digit " + number);
+    }
 }
