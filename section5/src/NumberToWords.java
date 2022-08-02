@@ -61,9 +61,16 @@ They don't have to be separated by a space.
     public static void main(String[] args) {
 //        numberToWords(-3);
 //        numberToWords(1);
-        numberToWords(1234567890);
+//        numberToWords(1234567890);
+//        numberToWords(reverse(234));
+//        numberToWords(reverse(1001));
+//        numberToWords(reverse(1010));
+//        System.out.println(reverse(0001));
+        System.out.println(getDigitCount(1010));
+        System.out.println(getDigitCount(reverse(1010)));
     }
     public static void numberToWords(int number) {
+
         if (number < 0 ) {
             System.out.print("Invalid Value");
         }
@@ -108,8 +115,33 @@ They don't have to be separated by a space.
             //Remove the last digit
             number /= 10;
 //            System.out.print("removed the last digit =" + number);
-
         }
+    }
 
+    public static int reverse(int number) {
+        int lastDigit = 0;
+        int reverse = 0;
+        while (number != 0 ) {
+            reverse *= 10;
+//            System.out.println("reverse = " + reverse);
+            lastDigit = number % 10;
+//            System.out.println("digit =" + lastDigit);
+            number /= 10;
+            reverse += lastDigit;
+//            System.out.println("reverse + digit = " + reverse);
+        }
+        return reverse;
+    }
+    public static int getDigitCount(int number) {
+        if (number < 0 ) {
+            return -1;
+        }
+        int count = 0;
+        while (number != 0) {
+            count++;
+            number /= 10;
+//            System.out.println("count = " + count);
+        }
+        return count;
     }
 }
